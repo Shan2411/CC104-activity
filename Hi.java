@@ -26,14 +26,23 @@ public class Hi {
         System.out.println("Please select the letter of your desired option:");
         System.out.println("\n A: Check Inventory \n B: Check an Item's details\n C: Quit\n");
 
-        System.out.print("Input:");
-        
+        System.out.print("Input: ");
+        String userInput = scanner.nextLine();
+        //IF CONDITION START    
+
+        if (userInput.equalsIgnoreCase("a")) {
+            
+            System.out.print("Insert the name of the Item: ");
+            String search = scanner.nextLine();
+
+            System.out.print("\nItem name: " + search);
+            System.out.print("   Item desc: " + item.get(search));
+            
+        }
+
+        else {System.out.println("Input invalid");}
+
         //System.out.print("\nInput the name of the item: ");
-
-        String search = scanner.nextLine();
-
-        System.out.print("\nItem name: " + search);
-        System.out.print("    Item desc: " + item.get(search));
 
     }
 }
