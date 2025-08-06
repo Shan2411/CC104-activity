@@ -5,67 +5,109 @@ import java.util.ArrayList;
 
 //check an item, overall inventory,
 
+/* 
+Exp. Date
+Mnf. Date
+Production (date?)
+Barcode
+Product desc.
+Product size
+Quantity
+Status
+*/
+
 
 public class Hi {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        Inventory inventory = new Inventory("12ab","bscs");
-        Inventory inventory2 = new Inventory("34cb","bs1s");
-
-        List<Inventory> li = new ArrayList<Inventory>();
-        HashMap<String, List<Inventory>> item = new HashMap<>();
-
-        li.add(inventory);
-        li.add(inventory2);
-
-        item.put("Bread", li);
-
-        System.out.println("\n\n Quick Stock Inventory Checker \n\n ------------------------------------------\n");
-        System.out.println("Please select the letter of your desired option:");
-        System.out.println("\n A: Check Inventory \n B: Check an Item's details\n C: Quit\n");
-
-        System.out.print("Input: ");
-        String userInput = scanner.nextLine();
-        //IF CONDITION START    
-
-        if (userInput.equalsIgnoreCase("a")) {
+        while (true) {
             
-            System.out.print("Insert the name of the Item: ");
-            String search = scanner.nextLine();
+            Scanner scanner = new Scanner(System.in);
+            Inventory inventory = new Inventory("Expiry date: Jun 24 2090    ","Manufacture Date: 2025", "Production Date: 2020    ", "   Barcode: 112039");
+            Inventory inventory2 = new Inventory("Expiry date: 2030,    ","Manufacture Date: 2025", "Production Date: 2021    ", "   Barcode: 091824");
 
-            System.out.print("\nItem name: " + search);
-            System.out.print("   Item desc: " + item.get(search));
-            
+            List<Inventory> li = new ArrayList<Inventory>();
+            List<Inventory> milkDesc = new ArrayList<Inventory>();
+
+            HashMap<String, List<Inventory>> item = new HashMap<>();
+
+            li.add(inventory);
+            milkDesc.add(inventory2);
+
+            item.put("Bread", li);
+            item.put("bread", li);
+            item.put("Milk", milkDesc);
+            item.put("milk", milkDesc);
+
+            System.out.println("\nQuick Stock Inventory Checker \n------------------------------------------\n");
+            System.out.println("Please select the letter of your desired option:");
+            System.out.println("\n A: Check Inventory \n B: Check a product's detail\n C: Quit\n");
+
+            System.out.print("Input: ");
+            String userInput = scanner.nextLine();
+            //IF CONDITIONS START    
+
+            if (userInput.equalsIgnoreCase("b")) {
+                
+                System.out.print("Insert the name of the Item: ");
+                String search = scanner.nextLine();
+
+                System.out.println("\nProduct Information of item " + search + "\n----------------------------------");
+                System.out.print(item.get(search)); 
+                System.out.print("\n\nDo you want to continue? [Y/N] ");
+                String yesOrNo = scanner.nextLine();
+
+                if (yesOrNo.equalsIgnoreCase("N")){break;}
+                
+            }
+
+            else if (userInput.equalsIgnoreCase("a")){ 
+                System.out.println("Stocked Products:\n");
+                
+                
+
+            }
+
+            else if (userInput.equalsIgnoreCase("c")){ 
+                break; 
+            }
+
+            else {System.out.println("Input invalid");}
+
+            //System.out.print("\nInput the name of the item: ");
         }
-
-        else {System.out.println("Input invalid");}
-
-        //System.out.print("\nInput the name of the item: ");
-
     }
 }
 
 
 class Inventory {
 
-String id;
-String name;
+String exp;
+String mnf;
+String prod;
+String barcode;
+String prodDesc;
+String prodSize;
+String quantity;
+String status;
     
-    public Inventory (String id, String name) {
+    public Inventory (String exp, String mnf, String prod, String barcode, String prodDesc, String prodSize, String quantity, String status) {
 
-        this.id = id;
-        this.name = name;
+        this.exp = exp;
+        this.mnf = mnf;
+        this.prod = prod;
+        this.barcode = barcode;
 
     }
 
     @Override
     public String toString() {
 
-        return id + name;
+        return exp + mnf + "]\n[" + prod + barcode "]\n[";
 
     }
     
 
 }
+
