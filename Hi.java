@@ -6,14 +6,9 @@ import java.util.ArrayList;
 //check an item, overall inventory,
 
 /* 
-Exp. Date
-Mnf. Date
-Production (date?)
-Barcode
-Product desc.
-Product size
-Quantity
-Status
+
+Mga pre try nyo to i run pero letter b lng na option pa lng gumagana eh
+
 */
 
 
@@ -24,8 +19,8 @@ public class Hi {
         while (true) {
             
             Scanner scanner = new Scanner(System.in);
-            Inventory inventory = new Inventory("Expiry date: Jun 24 2090    ","Manufacture Date: 2025", "Production Date: 2020    ", "   Barcode: 112039");
-            Inventory inventory2 = new Inventory("Expiry date: 2030,    ","Manufacture Date: 2025", "Production Date: 2021    ", "   Barcode: 091824");
+            Inventory inventory = new Inventory("Expiry date: Jun 24 2090","Manufacture Date: 2025", "Production Date: 2020", "Barcode: 112039", "Product Desc: Bread", "Product Size: Size varies", "Quantity: 1200pcs, ", "Status: Fresh");
+            Inventory inventory2 = new Inventory("Expiry date: 2030","Manufacture Date: 2025", "Production Date: 2021", "Barcode: 091824" ,"Product Desc: Milk", "Product Size: 1L", "Quantity: 800pcs", "Status: Fresh");
 
             List<Inventory> li = new ArrayList<Inventory>();
             List<Inventory> milkDesc = new ArrayList<Inventory>();
@@ -53,7 +48,7 @@ public class Hi {
                 System.out.print("Insert the name of the Item: ");
                 String search = scanner.nextLine();
 
-                System.out.println("\nProduct Information of item " + search + "\n----------------------------------");
+                System.out.println("\nProduct Information of item " + search);
                 System.out.print(item.get(search)); 
                 System.out.print("\n\nDo you want to continue? [Y/N] ");
                 String yesOrNo = scanner.nextLine();
@@ -98,14 +93,18 @@ String status;
         this.mnf = mnf;
         this.prod = prod;
         this.barcode = barcode;
-
+        this.prodDesc = prodDesc;
+        this.prodSize = prodSize;
+        this.quantity = quantity;
+        this.status = status;
     }
 
     @Override
     public String toString() {
 
-        return exp + mnf + "]\n[" + prod + barcode "]\n[";
-
+        //return exp + mnf + "]\n[" + prod + barcode + "]\n[" + prodDesc + prodSize + "]\n[" + quantity + status;
+        //return exp + "]\n[" + mnf + "]\n[" + prod + "]\n[" + barcode + "]\n[" + prodDesc + "]\n[" + prodSize + "]\n[" + quantity + "]\n[" + status;
+        return "----------------------]\n " + exp + "\n " + mnf + "\n " + prod + "\n " + barcode + "\n " + prodDesc + "\n " + prodSize + "\n " + quantity + "\n " + status + "\n[----------------------";    
     }
     
 
