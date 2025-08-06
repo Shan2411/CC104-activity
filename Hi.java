@@ -102,6 +102,7 @@ String status;
     @Override
     public String toString() {
 
+        // Mga pwedeng design 
         //return exp + mnf + "]\n[" + prod + barcode + "]\n[" + prodDesc + prodSize + "]\n[" + quantity + status;
         //return exp + "]\n[" + mnf + "]\n[" + prod + "]\n[" + barcode + "]\n[" + prodDesc + "]\n[" + prodSize + "]\n[" + quantity + "]\n[" + status;
         return "----------------------]\n " + exp + "\n " + mnf + "\n " + prod + "\n " + barcode + "\n " + prodDesc + "\n " + prodSize + "\n " + quantity + "\n " + status + "\n[----------------------";    
