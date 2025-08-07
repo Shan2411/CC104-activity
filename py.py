@@ -1,1 +1,3 @@
-print ("helo")
+import cowsay;
+
+print(cowsay("asdasda"))

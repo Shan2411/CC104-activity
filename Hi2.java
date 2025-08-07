@@ -10,46 +10,99 @@ public class Hi2 {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        Inventory inventory = new Inventory("Expiry date: Jun 24 2090", "Manufacture Date: 2025", "Production Date: 2020", "Barcode: 112039", "Product Desc: Bread", "Product Size: Size varies", 1200, "Fresh", 30.0);
-        Inventory inventory2 = new Inventory("Expiry date: 2030", "Manufacture Date: 2025", "Production Date: 2021", "Barcode: 091824", "Product Desc: Milk", "Product Size: 1L", 800, "Fresh", 50.0);
-
         HashMap<String, Inventory> item = new HashMap<>();
+
+        Inventory inventory4 = new Inventory(
+            "Expiry Date: May 1, 2028",
+            "Manufacture Date: March 10, 2025",
+            "Production Date: March 8, 2025",
+            "Barcode: 4801668501056",
+            "Product Desc: Healthy tuna flakes in vegetable oil.",
+            "Product Size: 180g can",
+            100,
+            "Fresh",
+            26.0
+        );
+
+        Inventory inventory5 = new Inventory(
+            "Expiry Date: July 30, 2027",
+            "Manufacture Date: April 18, 2025",
+            "Production Date: April 15, 2025",
+            "Barcode: 4800145011206",
+            "Product Desc: Spicy sardines perfect with rice.",
+            "Product Size: 155g can",
+            25,
+            "Fresh",
+            21.0
+        );
+
+        Inventory inventory = new Inventory(
+            "Expiry Date: March 5, 2028",
+            "Manufacture Date: August 12, 2025",
+            "Production Date: August 10, 2025",
+            "Barcode: 4801003001255",
+            "Product Desc: Premium corned beef with natural beef strands.",
+            "Product Size: 380g can",
+            190,
+            "Fresh",
+            41.0
+        );
+        Inventory inventory3 = new Inventory(
+            "Expiry date: August 15, 2027",
+            "Manufacture Date: February 10, 2025",
+            "Production Date: February 5, 2025",
+            "Barcode: 4806517440029",
+            "Product Desc: Premium sardines in rich tomato sauce.",
+            "Product Size: 155g can",
+            90,
+            "Fresh",
+            29.90
+        );
+
+        Inventory inventory2 = new Inventory(
+            "Expiry Date: September 18, 2026",
+            "Manufacture Date: January 5, 2025",
+            "Production Date: January 1, 2025",
+            "Barcode: 4897000065337",
+            "Product Desc: Chinese-style pork luncheon meat.",
+            "Product Size: 397g can",
+            450,
+            "Fresh",
+            33.25
+        );
+
+
         
-        item.put("bread", inventory);
-        item.put("milk", inventory2);
+        item.put("corned beef", inventory);
+        item.put("century tuna", inventory4);
+        item.put("young town sardines", inventory3);
+        item.put("luncheon meat", inventory2);
+        item.put("ligo sardines", inventory5);
+        
+
 
         while (true) {
             System.out.println("\nQuick Stock Inventory Checker \n------------------------------------------");
             System.out.println("Please select the letter of your desired option:");
             System.out.println(" A: Check Inventory");
-            System.out.println(" B: Check a product's detail");
-            System.out.println(" C: Buy Product");
-            System.out.println(" D: Quit");
+            System.out.println(" B: Buy Product");
+            System.out.println(" C: Quit");
             System.out.print("Input: ");
             String userInput = scanner.nextLine();
 
-            if (userInput.equalsIgnoreCase("b")) {
-                System.out.print("Insert the name of the Item: ");
-                String search = scanner.nextLine();
+            if (userInput.equalsIgnoreCase("a")) {
+                System.out.println("\nStocked Products:");
+                for (String key : item.keySet()) {
+                    System.out.println("- " + key + "\n" + item.get(key) + "\n");
 
-                if (item.containsKey(search)) {
-                    System.out.println("\nProduct Information of item \"" + search + "\":");
-                    System.out.print(item.get(search));
-                } else {
-                    System.out.println("Item not found.");
                 }
 
-                System.out.print("\n\nDo you want to continue? [Y/N] ");
+                System.out.print("Do you want to continue? [Y/N] ");
                 String yesOrNo = scanner.nextLine();
                 if (yesOrNo.equalsIgnoreCase("N")) break;
 
-            } else if (userInput.equalsIgnoreCase("a")) {
-                System.out.println("\nStocked Products:");
-                for (String key : item.keySet()) {
-                    System.out.println("- " + key + " (" + item.get(key).quantity + " pcs available)");
-                }
-
-            } else if (userInput.equalsIgnoreCase("c")) {
+            } else if (userInput.equalsIgnoreCase("b")) {
+                System.out.println("\nProducts to choose from: \n" + item.keySet() + "\n");
                 System.out.print("Enter product name to buy: ");
                 String productName = scanner.nextLine();
 
@@ -91,9 +144,10 @@ public class Hi2 {
                 System.out.println("Total: P" + total);
                 System.out.println("Cash: P" + cash);
                 System.out.println("Change: P" + change);
+                System.out.println("Thank you for your purchase!");
                 System.out.println("===================");
 
-            } else if (userInput.equalsIgnoreCase("d")) {
+            } else if (userInput.equalsIgnoreCase("c")) {
                 break;
 
             } else {
