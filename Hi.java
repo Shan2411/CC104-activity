@@ -5,12 +5,6 @@ import java.util.ArrayList;
 
 //check an item, overall inventory,
 
-/* 
-
-Mga pre try nyo to i run pero letter b lng na option pa lng gumagana eh
-
-*/
-
 
 public class Hi {
 
@@ -29,10 +23,8 @@ public class Hi {
 
             li.add(inventory);
             milkDesc.add(inventory2);
-
-            item.put("Bread", li);
+            
             item.put("bread", li);
-            item.put("Milk", milkDesc);
             item.put("milk", milkDesc);
 
             System.out.println("\nQuick Stock Inventory Checker \n------------------------------------------\n");
@@ -58,9 +50,14 @@ public class Hi {
             }
 
             else if (userInput.equalsIgnoreCase("a")){ 
-                System.out.println("Stocked Products:\n");
+                System.out.println("\nStocked Products:\n");
+                System.out.println(item.keySet());
                 
-                
+                System.out.print("\n\nDo you want to continue? [Y/N] ");
+                String yesOrNo = scanner.nextLine();
+
+                if (yesOrNo.equalsIgnoreCase("N")){break;}
+                //for (String key: item.keySet())
 
             }
 
