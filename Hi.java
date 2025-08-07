@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 //check an item, overall inventory,
 
-
 public class Hi {
 
     public static void main(String[] args) {
@@ -13,8 +12,8 @@ public class Hi {
         while (true) {
             
             Scanner scanner = new Scanner(System.in);
-            Inventory inventory = new Inventory("Expiry date: Jun 24 2090","Manufacture Date: 2025", "Production Date: 2020", "Barcode: 112039", "Product Desc: Bread", "Product Size: Size varies", "Quantity: 1200pcs, ", "Status: Fresh");
-            Inventory inventory2 = new Inventory("Expiry date: 2030","Manufacture Date: 2025", "Production Date: 2021", "Barcode: 091824" ,"Product Desc: Milk", "Product Size: 1L", "Quantity: 800pcs", "Status: Fresh");
+            Inventory inventory = new Inventory("Expiry date: Jun 24 2090","Manufacture Date: 2025", "Production Date: 2020", "Barcode: 112039", "Product Desc: Bread", "Product Size: Size varies", 10, "Status: Fresh");
+            Inventory inventory2 = new Inventory("Expiry date: 2030","Manufacture Date: 2025", "Production Date: 2021", "Barcode: 091824" ,"Product Desc: Milk", "Product Size: 1L", 5, "Status: Fresh");
 
             List<Inventory> li = new ArrayList<Inventory>();
             List<Inventory> milkDesc = new ArrayList<Inventory>();
@@ -23,13 +22,13 @@ public class Hi {
 
             li.add(inventory);
             milkDesc.add(inventory2);
-            
+
             item.put("bread", li);
             item.put("milk", milkDesc);
 
             System.out.println("\nQuick Stock Inventory Checker \n------------------------------------------\n");
             System.out.println("Please select the letter of your desired option:");
-            System.out.println("\n A: Check Inventory \n B: Check a product's detail\n C: Quit\n");
+            System.out.println("\n A: Check Inventory \n B: Check a product's detail\n C: Buy a product\n D: Quit\n");
 
             System.out.print("Input: ");
             String userInput = scanner.nextLine();
@@ -58,10 +57,13 @@ public class Hi {
 
                 if (yesOrNo.equalsIgnoreCase("N")){break;}
                 //for (String key: item.keySet())
-
+            }
+            
+            else if (userInput.equalsIgnoreCase("c")){ 
+                break; 
             }
 
-            else if (userInput.equalsIgnoreCase("c")){ 
+            else if (userInput.equalsIgnoreCase("d")){ 
                 break; 
             }
 
@@ -81,10 +83,10 @@ String prod;
 String barcode;
 String prodDesc;
 String prodSize;
-String quantity;
+int quantity;
 String status;
     
-    public Inventory (String exp, String mnf, String prod, String barcode, String prodDesc, String prodSize, String quantity, String status) {
+    public Inventory (String exp, String mnf, String prod, String barcode, String prodDesc, String prodSize, int quantity, String status) {
 
         this.exp = exp;
         this.mnf = mnf;
@@ -102,7 +104,7 @@ String status;
         // Mga pwedeng design 
         //return exp + mnf + "]\n[" + prod + barcode + "]\n[" + prodDesc + prodSize + "]\n[" + quantity + status;
         //return exp + "]\n[" + mnf + "]\n[" + prod + "]\n[" + barcode + "]\n[" + prodDesc + "]\n[" + prodSize + "]\n[" + quantity + "]\n[" + status;
-        return "----------------------]\n " + exp + "\n " + mnf + "\n " + prod + "\n " + barcode + "\n " + prodDesc + "\n " + prodSize + "\n " + quantity + "\n " + status + "\n[----------------------";    
+        return "----------------------]\n " + exp + "\n " + mnf + "\n " + prod + "\n " + barcode + "\n " + prodDesc + "\n " + prodSize + "\n Quantity: " + quantity + "\n " + status + "\n[----------------------";    
     }
     
 
